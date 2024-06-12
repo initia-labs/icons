@@ -7,13 +7,11 @@ function createComponent(name) {
 
 export function ${name}({ color, size }: { color?: string, size?: number }) {
   return (
-    <div>
-      <Icon
-        fill={color || 'currentColor'}
-        width={size || 16}
-        height={size || 16}
-      />
-    </div>
+    <Icon
+      fill={color || 'currentColor'}
+      width={size || 16}
+      height={size || 16}
+    />
   )
 }`
 }

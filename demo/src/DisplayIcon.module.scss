@@ -1,0 +1,27 @@
+.icon {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid var(--text-color);
+    p {
+      border-top: 1px solid var(--text-color);
+    }
+  }
+
+  .icon__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0;
+  }
+
+  p {
+    background-color: #161717;
+    margin: 0;
+    padding: 6px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+  }
+}

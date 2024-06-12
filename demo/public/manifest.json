@@ -1,0 +1,15 @@
+{
+  "short_name": "Initia Icons",
+  "name": "initia icons library",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0F0F10",
+  "background_color": "#000000"
+}
