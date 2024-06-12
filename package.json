@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "scripts": {
+    "fix-colors": "node ./fixIconsColor.js",
+    "build": "pnpm run fix-colors && pnpm --filter @initia/icons-react build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "glob": "^10.4.1"
+  }
+}

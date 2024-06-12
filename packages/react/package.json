@@ -1,0 +1,35 @@
+{
+  "name": "@initia/icons-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node ./build.js && rm -rf dist && rollup -c"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@svgr/rollup": "^8.1.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "fs-extra": "^11.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tslib": "^2.6.3",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "react": ">= 16"
+  },
+  "dependencies": {
+    "react-native-svg": "^15.3.0"
+  }
+}
