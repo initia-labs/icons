@@ -2,7 +2,8 @@
   "description": "",
   "scripts": {
     "fix-colors": "node ./fixIconsColor.js",
-    "build": "pnpm run fix-colors && pnpm --filter @initia/icons-react build"
+    "build": "pnpm run fix-colors && pnpm --filter @initia/icons-react build",
+    "dev": "pnpm --filter icons-demo dev"
   },
   "keywords": [],
   "author": "",
