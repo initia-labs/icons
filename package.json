@@ -3,6 +3,7 @@
   "scripts": {
     "fix-colors": "node ./fixIconsColor.js",
     "build": "pnpm run fix-colors && pnpm --filter @initia/icons-react build",
+    "build:demo": "pnpm run build && pnpm --filter @initia/icons-demo build",
     "dev": "pnpm --filter @initia/icons-demo dev"
   },
   "keywords": [],
