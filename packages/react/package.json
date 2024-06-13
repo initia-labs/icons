@@ -5,6 +5,11 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "repository": "github:initia-labs/icons",
+  "homepage": "https://icons-initia.vercel.app/",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
