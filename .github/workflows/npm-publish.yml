@@ -10,22 +10,14 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - name: Get the tag name
-        id: get_tag
-        run: echo "::set-output name=tag::${GITHUB_REF#refs/tags/}"
-
-      - name: Build and publish to NPM
         - uses: actions/checkout@v4
         - uses: actions/setup-node@v4
           with:
             node-version: "20"
             registry-url: "https://registry.npmjs.org"
-
         - run: npm i -g pnpm
         - run: pnpm i
-        - run: |
-          TAG_NAME=${{ steps.get_tag.outputs.tag }}
-          cd packages/react && npm version $TAG_NAME --no-git-tag-version && cd ../..
+        - run: cd packages/react && npm version $GITHUB_REF_NAME --no-git-tag-version && cd ../..
         - run: pnpm build
         - run: pnpm --filter @initia/icons-react publish
           env:
