@@ -19,6 +19,6 @@ jobs:
         - run: pnpm i
         - run: cd packages/react && npm version $GITHUB_REF_NAME --no-git-tag-version && cd ../..
         - run: pnpm build
-        - run: pnpm --filter @initia/icons-react publish
+        - run: pnpm --filter @initia/icons-react publish --no-git-checks
           env:
             NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
