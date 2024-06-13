@@ -5,13 +5,6 @@
   --bg-color: #000000;
 }
 
-@font-face {
-  font-family: 'Visby';
-  font-weight: 400;
-  font-style: normal;
-  src: url('./assets/VisbyCF-Regular.woff2') format('woff2');
-}
-
 body {
   background-color: var(--bg-color);
   margin: 0;
@@ -19,6 +12,6 @@ body {
 }
 
 * {
-  font-family: 'Visby';
+  font-family: 'Visby CF';
   color: var(--text-color);
 }
