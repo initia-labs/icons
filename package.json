@@ -6,10 +6,12 @@
     "build:demo": "pnpm run build && pnpm --filter @initia/icons-demo build",
     "dev": "pnpm --filter @initia/icons-demo dev"
   },
+  "pre-commit": [ "fix-colors" ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "glob": "^10.4.1"
+    "glob": "^10.4.1",
+    "pre-commit": "^1.2.2"
   }
 }
