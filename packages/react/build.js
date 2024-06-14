@@ -21,7 +21,6 @@ fs.rmSync(path.join(__dirname, './src'), { recursive: true, force: true })
 
 // create directory with the components
 fs.mkdirSync(path.join(__dirname, './src'))
-console.log(path.join(__dirname, '../../icons', '*.svg'))
 
 // exports that will be included in index.tsx
 const indexFile = []

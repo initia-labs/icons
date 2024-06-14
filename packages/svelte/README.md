@@ -1,8 +1,8 @@
-# @initia/icons-react
+# @initia/icons-svelte
 ## Usage
 
 ```js
-import { IconName } from "@initia/icons-react"
+import { IconName } from "@initia/icons-svelte"
 
 <IconName color="white" size={50}/>
 ```

@@ -18,7 +18,8 @@ jobs:
         - run: npm i -g pnpm
         - run: pnpm i
         - run: cd packages/react && npm version $GITHUB_REF_NAME --no-git-tag-version && cd ../..
+        - run: cd packages/svelte && npm version $GITHUB_REF_NAME --no-git-tag-version && cd ../..
         - run: pnpm build
-        - run: pnpm --filter @initia/icons-react publish --no-git-checks
+        - run: pnpm --filter @initia/icons-* publish --no-git-checks
           env:
             NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}

@@ -16,7 +16,7 @@
   "scripts": {
     "build": "node ./build.js && rm -rf dist && rollup -c"
   },
-  "keywords": [],
+  "keywords": ["initia", "initia-labs", "icons", "icons-react"],
   "author": "",
   "license": "ISC",
   "devDependencies": {

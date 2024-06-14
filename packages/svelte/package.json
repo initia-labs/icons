@@ -2,11 +2,32 @@
   "name": "@initia/icons-svelte",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": "github:initia-labs/icons",
+  "homepage": "https://icons-initia.vercel.app/",
+  "publishConfig": {
+    "access": "public"
   },
-  "keywords": [],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "node ./build.js && rm -rf dist && svelte-package --input ./src"
+  },
+  "keywords": ["initia", "initia-labs", "icons", "icons-svelte"],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@sveltejs/package": "^2.3.2",
+    "@tsconfig/svelte": "^5.0.4",
+    "fs-extra": "^11.2.0",
+    "svelte": "^4.2.18"
+  },
+  "peerDependencies": {
+    "svelte": ">=3 <5"
+  }
 }
