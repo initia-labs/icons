@@ -9,8 +9,8 @@ export let color: string = "currentColor"
 </script>
 
 {@html \`${svg
-    .replaceAll('width="16"', 'width="${size}"')
-    .replaceAll('height="16"', 'height="${size}"')
+    .replace('width="16"', 'width="${size}"')
+    .replace('height="16"', 'height="${size}"')
     .replaceAll('fill="currentColor"', 'fill="${color}"')}\`}
 `
 }
