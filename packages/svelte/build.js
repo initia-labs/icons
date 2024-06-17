@@ -37,7 +37,7 @@ icons.forEach((filePath) => {
     createComponent(svgContent),
   )
 
-  indexFile.push(`export ${iconName} from './${iconName}.svelte'`)
+  indexFile.push(`export { default as ${iconName} } from './${iconName}.svelte'`)
 })
 
 fs.writeFileSync(path.join(__dirname, './src/index.ts'), indexFile.join('\n'))
