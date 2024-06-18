@@ -5,7 +5,7 @@ const { globSync } = require('glob')
 function createComponent(name) {
   return `import { ReactComponent as Icon } from './icon.svg'
 
-export function ${name}({ color, size }: { color?: string, size?: number }) {
+export function Icon${name}({ color, size }: { color?: string, size?: number }) {
   return (
     <Icon
       fill={color || 'currentColor'}

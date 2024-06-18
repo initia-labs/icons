@@ -1,7 +1,7 @@
 import styles from './App.module.scss'
 import logo from './assets/logo.svg'
 import * as iconsComponents from '@initia/icons-react'
-import { Search } from '@initia/icons-react'
+import { IconSearch } from '@initia/icons-react'
 import DisplayIcon from './DisplayIcon'
 import { useState } from 'react'
 
@@ -20,7 +20,7 @@ function App() {
       </header>
       <main className={styles.main}>
         <div className={styles.search}>
-          <Search size={18} />
+          <IconSearch size={18} />
           <input
             type='text'
             className={styles.search__input}
