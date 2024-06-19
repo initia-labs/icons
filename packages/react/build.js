@@ -5,13 +5,23 @@ const { globSync } = require('glob')
 function createComponent(name) {
   return `import { ReactComponent as Icon } from './icon.svg'
 
-export function Icon${name}({ color, size, style }: { color?: string, size?: number, style?: React.CSSProperties }) {
+export function Icon${name}({
+  color,
+  size,
+  ...props
+}: {
+  color?: string
+  size?: number
+  style?: React.CSSProperties
+  className?: string
+  indeterminate?: boolean
+}) {
   return (
     <Icon
       fill={color || 'currentColor'}
       width={size || 16}
       height={size || 16}
-      style={style}
+      {...props}
     />
   )
 }`
