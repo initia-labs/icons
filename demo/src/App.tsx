@@ -31,7 +31,7 @@ function App() {
         <div className={styles.icons__container}>
           {icons.length ? (
             icons.map(([name, Component]) => (
-              <DisplayIcon name={name} key={name}>
+              <DisplayIcon name={name.substring(4)} key={name}>
                 {<Component size={24} />}
               </DisplayIcon>
             ))
