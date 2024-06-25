@@ -4,6 +4,8 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+pnpmfileChecksum: grtyikabucfno6s66uwmaqvmke
+
 importers:
 
   .:
@@ -14,6 +16,9 @@ importers:
       pre-commit:
         specifier: ^1.2.2
         version: 1.2.2
+      svgo:
+        specifier: ^3.3.2
+        version: 3.3.2
 
   demo:
     dependencies:
@@ -1308,6 +1313,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@jsumners/pre-commit@1.2.2-fork.1':
+    resolution: {integrity: sha512-nAB/4WNB9bbCioXoEWl4hmTa4NnA7/ber0REGYYaJXPNOQdn+1vcQDhpxiHZ+4DsPPhJIa4IrNGgVdxw95QPaQ==}
 
   '@leichtgewicht/ip-codec@2.0.5':
     resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
@@ -8293,6 +8301,12 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
+  '@jsumners/pre-commit@1.2.2-fork.1':
+    dependencies:
+      cross-spawn: 5.1.0
+      spawn-sync: 1.0.15
+      which: 1.2.14
+
   '@leichtgewicht/ip-codec@2.0.5': {}
 
   '@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1':
@@ -13353,6 +13367,7 @@ snapshots:
 
   pre-commit@1.2.2:
     dependencies:
+      '@jsumners/pre-commit': 1.2.2-fork.1
       cross-spawn: 5.1.0
       spawn-sync: 1.0.15
       which: 1.2.14
