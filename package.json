@@ -1,17 +1,22 @@
 {
   "description": "",
   "scripts": {
-    "fix-colors": "node ./fixIconsColor.js",
+    "optimize-svg": "svgo -f icons -o icons",
+    "git-add": "git add -A",
     "build": "pnpm run fix-colors && pnpm --filter @initia/icons-* build",
     "build:demo": "pnpm run build && pnpm --filter @initia/icons-demo build",
     "dev": "pnpm --filter @initia/icons-demo dev"
   },
-  "pre-commit": [ "fix-colors" ],
+  "pre-commit": [
+    "optimize-svg",
+    "git-add"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "glob": "^10.4.1",
+    "svgo": "^3.3.2",
     "pre-commit": "^1.2.2"
   }
 }
