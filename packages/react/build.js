@@ -8,6 +8,7 @@ function createComponent(name) {
 export function Icon${name}({
   color,
   size,
+  style,
   ...props
 }: {
   color?: string
@@ -19,8 +20,7 @@ export function Icon${name}({
   return (
     <Icon
       fill={color || 'currentColor'}
-      width={size || 16}
-      height={size || 16}
+      style={{ ...style, transform: \`scale(\${(size || 16)/16})\` }}
       {...props}
     />
   )
