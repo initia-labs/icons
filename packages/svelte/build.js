@@ -10,7 +10,7 @@ export let color: string = "currentColor"
 
 {@html \`${svg
     .replace('width="16"', 'width="${size}"')
-    .replace('height="16"', 'height="${size}"')
+    .replace('height="16"', 'height="${size}" viewBox="0 0 16 16"')
     .replaceAll('fill="currentColor"', 'fill="${color}"')}\`}
 `
 }

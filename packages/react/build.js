@@ -21,6 +21,7 @@ export function Icon${name}({
       fill={color || 'currentColor'}
       width={size || 16}
       height={size || 16}
+      viewBox="0 0 16 16"
       {...props}
     />
   )
