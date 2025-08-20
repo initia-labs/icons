@@ -49,7 +49,7 @@ You can test your new icon using the demo application:
 
 ```bash
 # Start the demo app
-pnpm run dev
+pnpm dev
 ```
 
 Open your browser and navigate to the provided URL to see all icons, including your new addition.
