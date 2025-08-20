@@ -34,7 +34,7 @@ Run the following commands from the project root:
 pnpm install
 
 # Build the icon libraries
-pnpm run build
+pnpm build
 ```
 
 This will:
