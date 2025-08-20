@@ -6,7 +6,7 @@ Thank you for your interest in contributing to the @initia/icons library! This g
 
 Before contributing, make sure you have:
 
-- Node.js >= 20
+- Node.js >= 22
 - pnpm package manager
 
 ## Adding New Icons
