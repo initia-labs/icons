@@ -2,8 +2,10 @@ name: Publish Package
 
 on:
   push:
-    tags:
-      - "*"
+    branches:
+      - main
+    paths:
+      - "packages/react/package.json"
 
 permissions:
   id-token: write
@@ -23,6 +25,5 @@ jobs:
         with:
           version: "latest"
       - run: pnpm install --frozen-lockfile
-      - run: cd packages/react && npm version $GITHUB_REF_NAME --no-git-tag-version && cd ../..
       - run: pnpm build
       - run: pnpm --filter @initia/icons-* publish --no-git-checks
