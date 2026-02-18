@@ -2,7 +2,8 @@
   "description": "",
   "scripts": {
     "optimize-svg": "svgo -f icons -o icons",
-    "build": "pnpm run optimize-svg && pnpm --filter @initia/icons-* build",
+    "generate-docs": "node generateDocs.js",
+    "build": "pnpm run optimize-svg && pnpm --filter @initia/icons-* build && pnpm run generate-docs",
     "build:demo": "pnpm run build && pnpm --filter @initia/icons-demo build",
     "dev": "pnpm --filter @initia/icons-demo dev"
   },
