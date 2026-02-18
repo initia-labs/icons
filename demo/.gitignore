@@ -23,4 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # generated at build time
-/public/ICONS.md
+/public/llms.txt
