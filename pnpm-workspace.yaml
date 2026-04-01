@@ -1,3 +1,7 @@
 packages:
   - "packages/*"
   - "demo"
+
+minimumReleaseAge: 1440
+minimumReleaseAgeExclude:
+  - '@initia/*'
