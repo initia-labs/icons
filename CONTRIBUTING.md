@@ -68,6 +68,7 @@ pnpm run build
 ```
 
 This will:
+
 1. Run **SVGO** to optimize all SVGs in `icons/` (auto-converts colors to `currentColor`)
 2. Generate React components from every SVG in `icons/`
 3. Bundle the package via Rollup
