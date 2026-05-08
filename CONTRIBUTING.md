@@ -4,7 +4,7 @@ This guide explains how to add new icons to the `@initia/icons-react` package.
 
 ## Prerequisites
 
-- Node >= 24
+- Node >= 26
 - pnpm
 - rollup
 
