@@ -2,11 +2,6 @@ packages:
   - "packages/*"
   - "demo"
 
-allowBuilds:
-  esbuild: true
-  core-js: false
-  core-js-pure: false
-
 minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
   - "@initia/*"
