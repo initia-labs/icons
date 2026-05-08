@@ -9,18 +9,11 @@
     "@types/react-dom": "^18.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-scripts": "^5.0.1",
     "typescript": "^5.4.5"
   },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -35,8 +28,8 @@
     ]
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react": "^6.0.1",
     "sass": "^1.77.5",
-    "vite": "^5.2.13"
+    "vite": "^8.0.11"
   }
 }

@@ -4,4 +4,4 @@ packages:
 
 minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
-  - '@initia/*'
+  - "@initia/*"
