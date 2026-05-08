@@ -25,4 +25,4 @@ jobs:
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
-      - run: pnpm --filter @initia/icons-* publish --no-git-checks
+      - run: pnpm --filter @initia/icons-* publish --no-git-checks --provenance
