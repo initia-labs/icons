@@ -25,6 +25,18 @@ describe('lintSvg', () => {
     expect(result.errors).toContain('<svg> viewBox must be "0 0 16 16"')
   })
 
+  it('rejects executable event attributes', () => {
+    const source = createIcon('M0 0L1 1').replace(
+      '<svg ',
+      '<svg onclick="alert(1)" ',
+    )
+    const result = lintSvg(source, 'EventAttribute.svg')
+
+    expect(result.errors).toContain(
+      '<svg> must not use the onclick attribute',
+    )
+  })
+
   it.each([
     'not a path',
     'M0 0 L',

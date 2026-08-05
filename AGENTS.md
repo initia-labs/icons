@@ -69,15 +69,17 @@ After adding your SVG file:
 ```sh
 pnpm install
 pnpm lint
+pnpm test
 pnpm run build
 ```
 
 This will:
 
 1. Parse and validate all SVGs with **SVGO**
-2. Run **SVGO** to optimize all SVGs in `icons/` (auto-converts colors to `currentColor`)
-3. Generate React components from every SVG in `icons/`
-4. Bundle the package via Rollup
+2. Run the SVG linter tests with **Vitest**
+3. Run **SVGO** to optimize all SVGs in `icons/` (auto-converts colors to `currentColor`)
+4. Generate React components from every SVG in `icons/`
+5. Bundle the package via Rollup
 
 ### 6. Preview
 
@@ -97,6 +99,7 @@ Before submitting your icon, verify:
 - [ ] Root fill is `"none"` and all path fills are `"currentColor"`
 - [ ] Width and height are `16`; an explicit viewBox is `0 0 16 16`
 - [ ] `pnpm lint` completes without errors
+- [ ] `pnpm test` completes without errors
 - [ ] `pnpm run build` completes without errors
 
 ## Releasing Icon Changes

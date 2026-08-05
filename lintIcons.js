@@ -6,7 +6,10 @@ const parseSvgPath = require('svg-path-parser')
 
 const ROOT_DIR = __dirname
 const ICONS_DIR = path.join(ROOT_DIR, 'icons')
-const ALLOWED_ELEMENTS = new Set(['svg', 'path'])
+const ALLOWED_ATTRIBUTES = new Map([
+  ['svg', new Set(['width', 'height', 'viewBox', 'fill', 'xmlns'])],
+  ['path', new Set(['d', 'fill', 'fill-rule', 'clip-rule'])],
+])
 const ICON_FILE_NAME = /^[A-Z][A-Za-z0-9]*\.svg$/
 
 function lintSvg(source, fileName, sourcePath = fileName) {
@@ -25,20 +28,15 @@ function lintSvg(source, fileName, sourcePath = fileName) {
       element: {
         enter: (node, parentNode) => {
           const { attributes } = node
+          const allowedAttributes = ALLOWED_ATTRIBUTES.get(node.name)
 
-          if (!ALLOWED_ELEMENTS.has(node.name)) {
+          if (allowedAttributes == null) {
             errors.push(`<${node.name}> is not allowed; use only <svg> and <path>`)
-          }
-
-          for (const name of Object.keys(attributes)) {
-            if (name === 'stroke' || name.startsWith('stroke-')) {
-              errors.push(`<${node.name}> must not use the ${name} attribute`)
-            }
-            if (name === 'color' || name.endsWith('-color')) {
-              errors.push(`<${node.name}> must not use the ${name} attribute`)
-            }
-            if (name === 'style') {
-              errors.push(`<${node.name}> must not use the style attribute`)
+          } else {
+            for (const name of Object.keys(attributes)) {
+              if (!allowedAttributes.has(name)) {
+                errors.push(`<${node.name}> must not use the ${name} attribute`)
+              }
             }
           }
 
