@@ -4,8 +4,8 @@ This guide explains how to add new icons to the `@initia/icons-react` package.
 
 ## Prerequisites
 
-- Node 22 (see .nvmrc)
-- pnpm
+- Node.js LTS (currently 24)
+- pnpm 11 (see `package.json`)
 - rollup
 
 ## Adding a New Icon
@@ -22,15 +22,19 @@ Every SVG file **must** follow these rules:
 
 The SVG must contain only `<svg>` and `<path>` elements. Do not use `<g>`, `<defs>`, `<clipPath>`, `<mask>`, `<circle>`, `<rect>`, `<use>`, or any other elements. If your source SVG contains these, flatten/expand them into raw `<path>` elements before adding the file.
 
-#### Fill color
+#### Fill-only geometry and color
 
-All `fill` attributes must be set to `"currentColor"`. This allows consumers to control the icon color via CSS. **Do not** use hardcoded colors like `#000`, `black`, `white`, `#FF0000`, etc.
+Icons must use fill-based geometry. Stroke attributes, including `stroke="none"`, `stroke-width`, `stroke-linecap`, and `stroke-linejoin`, are not allowed. Convert stroked outlines to filled paths before adding the file.
+
+Set the root `<svg>` fill to `"none"` and every `<path>` fill to `"currentColor"`. This allows consumers to control the icon color through the generated component. **Do not** use hardcoded colors like `#000`, `black`, `white`, `#FF0000`, etc.
 
 The build pipeline runs SVGO with the `convertColors` plugin (`currentColor: true`), which converts some color values automatically. However, you should still set `fill="currentColor"` explicitly to avoid issues with colors that the plugin may not catch.
 
+Prefer a single compound path. Multiple paths are currently allowed because existing icons still use them, but the icon lint reports them as warnings.
+
 #### Viewbox and dimensions
 
-Icons should use a **16x16** viewBox:
+Icons must have `width="16"`, `height="16"`, and `viewBox="0 0 16 16"`.
 
 ```xml
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,15 +67,17 @@ Icons should use a **16x16** viewBox:
 After adding your SVG file:
 
 ```sh
-pnpm i
+pnpm install
+pnpm lint
 pnpm run build
 ```
 
 This will:
 
-1. Run **SVGO** to optimize all SVGs in `icons/` (auto-converts colors to `currentColor`)
-2. Generate React components from every SVG in `icons/`
-3. Bundle the package via Rollup
+1. Parse and validate all SVGs with **SVGO**
+2. Run **SVGO** to optimize all SVGs in `icons/` (auto-converts colors to `currentColor`)
+3. Generate React components from every SVG in `icons/`
+4. Bundle the package via Rollup
 
 ### 6. Preview
 
@@ -87,6 +93,12 @@ Before submitting your icon, verify:
 
 - [ ] File is in `icons/` with a **PascalCase** name (e.g. `MyIcon.svg`)
 - [ ] SVG contains only `<svg>` and `<path>` elements — no `<g>`, `<defs>`, `<clipPath>`, etc.
-- [ ] All fills are set to `"currentColor"`
-- [ ] ViewBox is `0 0 16 16`
+- [ ] SVG uses fill-only geometry with no stroke attributes
+- [ ] Root fill is `"none"` and all path fills are `"currentColor"`
+- [ ] Width and height are `16`; an explicit viewBox is `0 0 16 16`
+- [ ] `pnpm lint` completes without errors
 - [ ] `pnpm run build` completes without errors
+
+## Releasing Icon Changes
+
+The publish workflow runs only when `packages/react/package.json` changes on `main`. When an icon addition or behavior change needs a package release, update from the latest `main`, check the published npm version, and bump the package to the next unpublished version.
