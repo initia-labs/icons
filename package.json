@@ -1,9 +1,11 @@
 {
   "description": "",
   "scripts": {
+    "lint": "node lintIcons.js",
+    "test": "vitest run",
     "optimize-svg": "svgo -f icons -o icons",
     "generate-docs": "node generateDocs.js",
-    "build": "pnpm run optimize-svg && pnpm --filter @initia/icons-* build && pnpm run generate-docs",
+    "build": "pnpm run lint && pnpm run optimize-svg && pnpm --filter @initia/icons-* build && pnpm run generate-docs",
     "build:demo": "pnpm run build && pnpm --filter @initia/icons-demo build",
     "dev": "pnpm --filter @initia/icons-demo dev"
   },
@@ -12,7 +14,9 @@
   "license": "ISC",
   "devDependencies": {
     "glob": "^10.4.1",
-    "svgo": "^3.3.2"
+    "svg-path-parser": "^1.1.0",
+    "svgo": "^3.3.2",
+    "vitest": "^4.1.10"
   },
   "packageManager": "pnpm@11.0.8"
 }
