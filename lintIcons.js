@@ -76,6 +76,16 @@ function lintSvg(source, fileName, sourcePath = fileName) {
           }
         },
       },
+      doctype: {
+        enter: () => {
+          errors.push('DOCTYPE declarations are not allowed')
+        },
+      },
+      instruction: {
+        enter: () => {
+          errors.push('XML processing instructions are not allowed')
+        },
+      },
       text: {
         enter: (node) => {
           if (node.value.trim() !== '') {

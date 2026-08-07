@@ -38,6 +38,23 @@ describe('lintSvg', () => {
   })
 
   it.each([
+    [
+      'DOCTYPE declarations',
+      '<!DOCTYPE svg>',
+      'DOCTYPE declarations are not allowed',
+    ],
+    [
+      'XML processing instructions',
+      '<?xml version="1.0"?>',
+      'XML processing instructions are not allowed',
+    ],
+  ])('rejects %s', (_name, metadata, expectedError) => {
+    const result = lintSvg(`${metadata}${createIcon('M0 0L1 1')}`, 'Metadata.svg')
+
+    expect(result.errors).toContain(expectedError)
+  })
+
+  it.each([
     'not a path',
     'M0 0 L',
     'M0 0 Z garbage',
